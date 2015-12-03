@@ -1,0 +1,16 @@
+{
+  "name": "Commandii",
+  "description": "Commandline tools",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/jfabot/commandii"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.*",
+    "grunt-clear": "~0.2.*",
+    "grunt-contrib-watch": "~0.6.*",
+    "grunt-phpcs": "*",
+    "grunt-phplint": "~0.0.*",
+    "grunt-phpunit": "~0.3.*"
+  }
+}
