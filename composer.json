@@ -1,0 +1,23 @@
+{
+  "name": "jfabot/Commandii",
+  "description": "Commandline tools",
+  "keywords": ["utilities", "commandline"],
+  "homepage": "https://bitbucket.org/jfabot/commandii",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Arno Bot",
+      "email": "arno@beeldplein.nl"
+    }
+  ],
+  "require": {
+    "fuegas/vanilla-psr": "1.*",
+    "php": ">= 5.4.0",
+    "phpunit/phpunit": "^4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Commandii\\" : "app/"
+    }
+  }
+}
