@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     watch: {
       test: {
         files: [
-          "app/**/*.php",
+          "src/**/*.php",
           "tests/**/*"
         ],
         tasks: ['clear','phplint','phpcs','phpunit']
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
      */
     phplint: {
       all: [
-        'app/**/*.php',
+        'src/**/*.php',
         'tests/**/*.test.php',
         'tests/**/*.php'
       ],
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     phpcs: {
       application: {
         src: [
-          "app/**/*.php",
+          "src/**/*.php",
           "tests/**/*"
         ]
       },
