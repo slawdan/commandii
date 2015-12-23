@@ -6,6 +6,65 @@ use \Commandii\AnsiColors;
 
 class StatusMessagesTest extends \PHPUnit_Framework_TestCase
 {
+  public $verbosePointer = false;
+
+
+
+  public function testDotNonVerbose()
+  {
+    // Set the verbose pointer
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+    AnsiColors::enableColors();
+
+    // Set the verbose to false
+    $this->verbosePointer = false;
+
+    // Test if the function returns a ! in red
+    $this->expectOutputString("\033[1;31m!\033[0m");
+    StatusMessages::dot(StatusMessages::TYPE_ERROR, '!', 'ERROR');
+  }
+
+  public function testDotVerbose()
+  {
+    // Set the verbose pointer
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+    AnsiColors::enableColors();
+
+    // Set the verbose to true
+    $this->verbosePointer = true;
+
+    // Test if the function returns the text ERROR in red
+    $this->expectOutputString("\033[1;31mERROR\033[0m\n");
+    StatusMessages::dot(StatusMessages::TYPE_ERROR, '!', 'ERROR');
+  }
+
+  public function testSetVerbosePointer()
+  {
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+
+    $this->verbosePointer = true;
+    $this->assertEquals(true, StatusMessages::$verbosePointer);
+
+    $this->verbosePointer = false;
+    $this->assertEquals(false, StatusMessages::$verbosePointer);
+  }
+
+  public function testUnknownColor()
+  {
+    $colors = StatusMessages::$colors;
+
+    StatusMessages::$colors = [StatusMessages::TYPE_DEFAULT => 'white',];
+
+    $this->assertEquals('<white>', StatusMessages::color(StatusMessages::TYPE_SUCCESS));
+
+    StatusMessages::$colors = $colors;
+  }
+
+  public function testNullColor()
+  {
+    $this->assertEquals('<white>', StatusMessages::color());
+  }
+
   public function testSuccessWithoutColors()
   {
     AnsiColors::disableColors();
