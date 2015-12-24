@@ -49,6 +49,18 @@ class StatusMessagesTest extends \PHPUnit_Framework_TestCase
     $this->assertEquals(false, StatusMessages::$verbosePointer);
   }
 
+  public function testResetVerbosePointer()
+  {
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+
+    $this->verbosePointer = true;
+    $this->assertEquals(true, StatusMessages::$verbosePointer);
+
+    StatusMessages::resetVerbosePointer();
+
+    $this->assertEquals(null, StatusMessages::$verbosePointer);
+  }
+
   public function testUnknownColor()
   {
     $colors = StatusMessages::$colors;

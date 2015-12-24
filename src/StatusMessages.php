@@ -70,6 +70,14 @@ class StatusMessages
   }
 
   /**
+   * Reset the verbosepointer
+   */
+  public static function resetVerbosePointer()
+  {
+    static::$verbosePointer = null;
+  }
+
+  /**
    * Show a success
    * @param $spacer
    */
