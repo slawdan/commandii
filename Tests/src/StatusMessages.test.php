@@ -61,6 +61,44 @@ class StatusMessagesTest extends \PHPUnit_Framework_TestCase
     $this->assertEquals(null, StatusMessages::$verbosePointer);
   }
 
+  public function testVerboseMessageWithoutVerbosePointer()
+  {
+    // Disable the colors for this test
+    AnsiColors::disableColors();
+
+    // Reset the verbosepointer
+    StatusMessages::resetVerbosePointer();
+
+    $this->expectOutputString('TEST');
+    StatusMessages::message('TEST', false, true);
+  }
+
+  public function testVerboseMessageWithVerbosePointerInVerboseMode()
+  {
+    // Disable the colors for this test
+    AnsiColors::disableColors();
+
+    // Set the verbosepointer
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+    $this->verbosePointer = true;
+
+    $this->expectOutputString('TEST');
+    StatusMessages::message('TEST', false, true);
+  }
+
+  public function testVerboseMessageWithVerbosePointerInNonVerboseMode()
+  {
+    // Disable the colors for this test
+    AnsiColors::disableColors();
+
+    // Set the verbosepointer
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+    $this->verbosePointer = false;
+
+    $this->expectOutputString('');
+    StatusMessages::message('TEST', false, true);
+  }
+
   public function testUnknownColor()
   {
     $colors = StatusMessages::$colors;
