@@ -16,14 +16,15 @@ If there is no value for the argument it will automatically be filled with a 1.
 ##StatusMessages
 The StatusMessages component exists of the following functions:
 ###setVerbosePointer($verbosePointer)
-###dot($type, $character, $verbosemessage)
+###resetVerbosePointer()
+###dot($type, $character, $verboseMessage)
 ###success($spacer)
 ###warning($spacer)
 ###error($spacer)
 ###skipped($spacer)
 ###warningText($message)
 ###errorText($message)
-###message($message, $linefeed)
+###message($message, $linefeed, $verboseOnly)
 ###newLine()
 
 ##AnsiColors
