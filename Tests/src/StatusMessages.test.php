@@ -49,11 +49,61 @@ class StatusMessagesTest extends \PHPUnit_Framework_TestCase
     $this->assertEquals(false, StatusMessages::$verbosePointer);
   }
 
+  public function testResetVerbosePointer()
+  {
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+
+    $this->verbosePointer = true;
+    $this->assertEquals(true, StatusMessages::$verbosePointer);
+
+    StatusMessages::resetVerbosePointer();
+
+    $this->assertEquals(null, StatusMessages::$verbosePointer);
+  }
+
+  public function testVerboseMessageWithoutVerbosePointer()
+  {
+    // Disable the colors for this test
+    AnsiColors::disableColors();
+
+    // Reset the verbosepointer
+    StatusMessages::resetVerbosePointer();
+
+    $this->expectOutputString('TEST');
+    StatusMessages::message('TEST', false, true);
+  }
+
+  public function testVerboseMessageWithVerbosePointerInVerboseMode()
+  {
+    // Disable the colors for this test
+    AnsiColors::disableColors();
+
+    // Set the verbosepointer
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+    $this->verbosePointer = true;
+
+    $this->expectOutputString('TEST');
+    StatusMessages::message('TEST', false, true);
+  }
+
+  public function testVerboseMessageWithVerbosePointerInNonVerboseMode()
+  {
+    // Disable the colors for this test
+    AnsiColors::disableColors();
+
+    // Set the verbosepointer
+    StatusMessages::setVerbosePointer($this->verbosePointer);
+    $this->verbosePointer = false;
+
+    $this->expectOutputString('');
+    StatusMessages::message('TEST', false, true);
+  }
+
   public function testUnknownColor()
   {
     $colors = StatusMessages::$colors;
 
-    StatusMessages::$colors = [StatusMessages::TYPE_DEFAULT => 'white',];
+    StatusMessages::$colors = [StatusMessages::TYPE_DEFAULT => 'white'];
 
     $this->assertEquals('<white>', StatusMessages::color(StatusMessages::TYPE_SUCCESS));
 

@@ -70,6 +70,14 @@ class StatusMessages
   }
 
   /**
+   * Reset the verbosepointer
+   */
+  public static function resetVerbosePointer()
+  {
+    static::$verbosePointer = null;
+  }
+
+  /**
    * Show a success
    * @param $spacer
    */
@@ -127,9 +135,18 @@ class StatusMessages
    * Show a message
    * @param $message
    * @param $linefeed
+   * @param $verboseOnly
    */
-  public static function message($message, $linefeed = true)
+  public static function message($message, $linefeed = true, $verboseOnly = false)
   {
+    if ($verboseOnly) {
+      // Check if the verbosePointer points to a true false
+      if (static::$verbosePointer === false) {
+        // Verbose is off so we don't show this message
+        return false;
+      }
+    }
+
     self::output(AnsiColors::Colorize($message, $linefeed));
   }
 
