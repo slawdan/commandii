@@ -65,7 +65,7 @@ class StatusMessagesTest extends \PHPUnit_Framework_TestCase
   {
     $colors = StatusMessages::$colors;
 
-    StatusMessages::$colors = [StatusMessages::TYPE_DEFAULT => 'white',];
+    StatusMessages::$colors = [StatusMessages::TYPE_DEFAULT => 'white'];
 
     $this->assertEquals('<white>', StatusMessages::color(StatusMessages::TYPE_SUCCESS));
 
