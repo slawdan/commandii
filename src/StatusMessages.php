@@ -132,6 +132,19 @@ class StatusMessages
   }
 
   /**
+   * Show an info text
+   */
+  public static function infoText($message, $type = null)
+  {
+    // If the type isn't set we set it with the INFO type
+    if ($type == null) {
+      $type = static::TYPE_INFO;
+    }
+
+    self::output(AnsiColors::colorize(static::color($type) . $message, true));
+  }
+
+  /**
    * Show a message
    * @param $message
    * @param $linefeed
