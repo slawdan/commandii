@@ -11,6 +11,8 @@ class StatusMessages
   const TYPE_ERROR   = 3;
   const TYPE_SKIPPED = 4;
   const TYPE_DRYRUN  = 5;
+  const TYPE_NOTICE  = 6;
+  const TYPE_INFO    = 7;
 
   public static $colors = [];
 
@@ -29,7 +31,9 @@ class StatusMessages
       static::TYPE_WARNING => 'darkYellow',
       static::TYPE_ERROR   => 'red',
       static::TYPE_SKIPPED => 'cyan',
-      static::TYPE_DRYRUN  => 'blue'
+      static::TYPE_DRYRUN  => 'blue',
+      static::TYPE_NOTICE  => 'cyan',
+      static::TYPE_INFO    => 'white'
     ];
   }
 
@@ -129,6 +133,19 @@ class StatusMessages
   public static function errorText($message)
   {
     self::output(AnsiColors::colorize(static::color(static::TYPE_ERROR) . $message, true));
+  }
+
+  /**
+   * Show an info text
+   */
+  public static function infoText($message, $type = null)
+  {
+    // If the type isn't set we set it with the INFO type
+    if ($type == null) {
+      $type = static::TYPE_INFO;
+    }
+
+    self::output(AnsiColors::colorize(static::color($type) . $message, true));
   }
 
   /**
