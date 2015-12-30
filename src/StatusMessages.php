@@ -11,6 +11,8 @@ class StatusMessages
   const TYPE_ERROR   = 3;
   const TYPE_SKIPPED = 4;
   const TYPE_DRYRUN  = 5;
+  const TYPE_NOTICE  = 6;
+  const TYPE_INFO    = 7;
 
   public static $colors = [];
 
@@ -29,7 +31,9 @@ class StatusMessages
       static::TYPE_WARNING => 'darkYellow',
       static::TYPE_ERROR   => 'red',
       static::TYPE_SKIPPED => 'cyan',
-      static::TYPE_DRYRUN  => 'blue'
+      static::TYPE_DRYRUN  => 'blue',
+      static::TYPE_NOTICE  => 'cyan',
+      static::TYPE_INFO    => 'white'
     ];
   }
 
