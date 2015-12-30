@@ -24,6 +24,7 @@ The StatusMessages component exists of the following functions:
 ###skipped($spacer)
 ###warningText($message)
 ###errorText($message)
+###infoText($message, $type)
 ###message($message, $linefeed, $verboseOnly)
 ###newLine()
 

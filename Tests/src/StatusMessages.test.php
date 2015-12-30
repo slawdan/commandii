@@ -218,4 +218,25 @@ class StatusMessagesTest extends \PHPUnit_Framework_TestCase
     $this->expectOutputString("\n");
     StatusMessages::newLine();
   }
+
+  public function testInfoTextWithoutColors()
+  {
+    AnsiColors::disableColors();
+    $this->expectOutputString("INFOTEXT\n");
+    StatusMessages::infoText('INFOTEXT');
+  }
+
+  public function testInfoTextWithDefaultColors()
+  {
+    AnsiColors::enableColors();
+    $this->expectOutputString("\033[1;37mINFOTEXT\033[0m\n");
+    StatusMessages::infoText('INFOTEXT');
+  }
+
+  public function testInfoTextWithAlternateColors()
+  {
+    AnsiColors::enableColors();
+    $this->expectOutputString("\033[1;36mINFOTEXT\033[0m\n");
+    StatusMessages::infoText('INFOTEXT', StatusMessages::TYPE_NOTICE);
+  }
 }
