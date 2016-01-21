@@ -5,6 +5,7 @@ class CommandLine
 {
   public static $totalArguments = 0;
   public static $totalParameters = 0;
+  public static $arguments = [];
 
 
 
@@ -56,6 +57,8 @@ class CommandLine
     }
 
     self::$totalArguments = $totalArguments;
+
+    static::$arguments = $output;
 
     return $output;
   }
