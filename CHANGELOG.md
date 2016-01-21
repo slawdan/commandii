@@ -1,4 +1,7 @@
 #Release history
+##0.4.1
+* Added the given argument for the commandline to the commandline class to keep them at 1 central location
+
 ##0.4.0
 * Added the infoText function
 * Added 2 new types: info and notice
