@@ -1,4 +1,7 @@
 #Release history
+##0.5.0
+* Added the question function
+
 ##0.4.1
 * Added the given argument for the commandline to the commandline class to keep them at 1 central location
 
