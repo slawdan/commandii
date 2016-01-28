@@ -193,6 +193,35 @@ class StatusMessages
   }
 
   /**
+   * Show a question and wait for user input
+   * @param  $question
+   * @param  $timeout
+   *
+   * @return boolean
+   */
+  public static function question($question, $timeout = 5)
+  {
+    // Show the question
+    static::message($question, ' (y/N) ', false);
+
+    $fd = fopen('php://stdin', 'r');
+
+    $read = [$fd];
+    $write = [];
+    $except = [];
+
+    // Wait 5 seconds for input
+    if (stream_select($read, $write, $except, $timeout)) {
+      $answer = substr(strtolower(fgets($fd)), 0, 1);
+      if ($answer == 'y') {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * Output the message
    * This function can be stubbed for tests
    */
