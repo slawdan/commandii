@@ -27,6 +27,7 @@ The StatusMessages component exists of the following functions:
 ###infoText($message, $type)
 ###message($message, $linefeed, $verboseOnly)
 ###newLine()
+###question($question, $timeout = 5)
 
 ##AnsiColors
 To enable colors (default: on) you can call the function enableColors. To disable you can call disableColors.
