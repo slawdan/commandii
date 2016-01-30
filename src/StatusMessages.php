@@ -202,7 +202,7 @@ class StatusMessages
   public static function question($question, $timeout = 5)
   {
     // Show the question
-    static::message($question, ' (y/N) ', false);
+    static::message($question . ' (y/N) ', false);
 
     $fd = fopen('php://stdin', 'r');
 
