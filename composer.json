@@ -11,8 +11,10 @@
     }
   ],
   "require": {
+    "php": ">= 5.4.0"
+  },
+  "require-dev": {
     "fuegas/vanilla-psr": "1.*",
-    "php": ">= 5.4.0",
     "phpunit/phpunit": "^4.7"
   },
   "autoload": {
