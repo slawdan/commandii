@@ -1,3 +1,6 @@
+#Before all
+This repo is a clone from https://bitbucket.org/jfabot/commandii , but with adjusted composer.json of move some deps to require-dev.
+
 #Commandii
 Commandii exists of 3 components: commandline, ansicolors and statusmessages.
 

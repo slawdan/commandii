@@ -1,18 +1,24 @@
 {
-  "name": "jfabot/commandii",
+  "name": "slawdan/commandii",
   "description": "Commandline tools",
   "keywords": ["utilities", "commandline"],
-  "homepage": "https://bitbucket.org/jfabot/commandii",
+  "homepage": "https://github.com/slawdan/commandii",
   "license": "MIT",
   "authors": [
     {
       "name": "Arno Bot",
       "email": "arno@beeldplein.nl"
+    },
+    {
+	    "name": "slawdan",
+	    "email": "schludern@gmail.com"
     }
   ],
   "require": {
+    "php": ">= 5.4.0"
+  },
+  "require-dev": {
     "fuegas/vanilla-psr": "1.*",
-    "php": ">= 5.4.0",
     "phpunit/phpunit": "^4.7"
   },
   "autoload": {
